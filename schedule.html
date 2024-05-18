@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DMM: Scheduling</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tempus-dominus.min.js"></script>
+  <script src="js/jQuery-provider.min.js"></script>
+  <link href="css/tempus-dominus.min.css" rel="stylesheet" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+<!-- Navigation Bar -->
+<div id="navbarload"></div>
+<script>
+  $(function(){
+    $("#navbarload").load("nav.html");
+  });
+</script>
+<!-- End of Navigation Bar -->
+<div class="container">
+  <div class="row">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary"></div>
+    <h1>Schedule a Service</h1>
+    <p>&emsp;This Schedule Service Request form is for those who wish to electronically submit a request to our mechanics. If you prefer otherwise, you may call or text Debrick Mobile at <a href="tel:18139996800">1(813)999-6800</a>, and let them know the website sent you.</p>
+    &nbsp;
+    <div class="card col-md-6 mb-4 align-self-end" id="schedule">
+      <form id="contactus" name="contactus">
+        <p class="fw-bold">* Fields are required</p>
+        <!-- Name input -->
+        <div class="mb-3">
+          <label class="form-label" for="name"><span class="fw-bold">*</span> Name</label>
+          <input class="form-control" id="name" type="text" placeholder="Please enter your name" required >
+        </div>
+
+        <!-- Phone number input -->
+        <div class="mb-3">
+          <label class="form-label" for="phoneNumber"><span class="fw-bold">*</span> Phone Number</label>
+          <input class="form-control" id="phoneNumber" type="tel" placeholder="Enter your phone number" title="Please enter a valid phone number" required >
+        </div>
+
+        <!-- Email address input -->
+        <div class="mb-3">
+          <label class="form-label" for="emailAddress">Email Address</label>
+          <input class="form-control" id="emailAddress" type="email" placeholder="Enter your email address" >
+        </div>
+
+        <!-- Car Input -->
+        <div class="mb-3">
+          <label class="form-label" for="car"><span class="fw-bold">*</span> Year, make, and model of car</label>
+          <input class="form-control" id="car" type="text" placeholder="Please enter your car" required >
+        </div>
+
+        <!-- Towing? -->
+        <div class="mb-3">
+          <p><span class="fw-bold">*</span> Will you be needing a tow for the requested services?</p>
+          <input type="radio" id="yestow" name="needtow" value="Needs a Tow">
+          <label for="yestow">Yes</label>
+          <input type="radio" id="notow" name="needtow" value="No Tow Required">
+          <label for="notow">No</label><br>
+        </div>
+        <!-- Issue Selection -->
+        <div class="mb-3">
+          <label for="service" class="form-label"><span class="fw-bold">*</span> What is the service related to?</label>
+          <select class="form-select" id="service" name="service" required>
+            <option>Oil Change</option>
+          <option>Brakes</option>
+            <option>Tune-Up</option>
+            <option>A/C Repair</option>
+            <option>Engine Repair</option>
+            <option>Transmission Service</option>
+            <option>Steering/Suspension</option>
+            <option>Other: Describe in detail below</option>
+          </select>
+        </div>
+        <!-- Time and Date -->
+        <div class="mb-3">
+          <div class="input-group" id="kt_td_picker_simple" data-td-target-input="nearest" data-td-target-toggle="nearest">
+            <input id="kt_td_picker_basic_input" type="text" class="form-control" data-td-target="#kt_td_picker_basic"/>
+            <span class="input-group-text" data-td-target="#kt_td_picker_basic" data-td-toggle="datetimepicker">
+                <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span class="path2"></span></i>
+            </span>
+          </div>
+        </div>
+        <!-- How did you hear about us? -->
+        <label for="howhear" class="form-label"> How did you hear about us?</label>
+        <select class="form-select" id="howhear" name="howhear">
+          <option></option>
+          <option>AutoZone</option>
+          <option>Google</option>
+          <option>Friend/Family Member</option>
+        </select>
+        <br>
+        <!-- Coupon Code -->
+        <div class="mb-3">
+          <label class="form-label" for="couponCode">Coupon Code</label>
+          <input class="form-control" id="couponCode" pattern="^(BrakeFree|TestCode).*$" type="text" title="Must enter a valid Coupon Code">
+        </div>
+
+        <!-- Message input -->
+        <div class="mb-3">
+          <label class="form-label" for="message"><span class="fw-bold">*</span> Describe the Issue</label>
+          <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" required></textarea>
+        </div>
+
+        <p class="mt-5 text-center">
+          <p>Attach an image of the issue (not required)</p>
+          <label for="attachment">
+            <a class="btn btn-primary text-light" role="button" aria-disabled="false">+ Add</a>
+          </label>
+          <input type="file" name="file[]" accept="" id="attachment" style="visibility: hidden; position: absolute;" multiple/>
+        </p>
+        <p id="files-area">
+          <span id="filesList">
+            <span id="files-names"></span>
+          </span>
+        </p>
+        &nbsp;
+        <!-- Form submit button -->
+        <div class="d-grid">
+          <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+        </div>
+
+      </form>
+    </div>
+    <div class="card col-md-5 mb-4 align-self-start" id="schedule" style=" margin-left: 1em;">
+      <p class="h2">Debrick Mobile</p>
+      <div id="map-container-google-2" class="map-container" style="height: 300px">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440.3733201102176!2d-82.31368457321176!3d27.99430756422419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c94d9b65039b%3A0xbfb0a33889cf5f70!2s5301%20Hillsborough%20Cir%2C%20Tampa%2C%20FL%2033610!5e0!3m2!1sen!2sus!4v1683054479567!5m2!1sen!2sus&z=15" class="zoomies" title="Location"></iframe>
+      </div>
+      <p class="h5">5301 Hillsborough Cir, Tampa, FL 33610</p>
+      <p class="fw-bold"><br>Hours of Operation:</p>
+      <div class="row">
+        <div class="col">
+          <p>Monday</p>
+          <p>Tuesday</p>
+          <p>Wednesday</p>
+          <p>Thursday</p>
+          <p>Friday</p>
+          <p>Saturday</p>
+          <p>Sunday</p>
+        </div>
+         <div class="col">
+          <p>9am - 5pm</p>
+          <p>9am - 5pm</p>
+          <p>9am - 5pm</p>
+          <p>9am - 5pm</p>
+          <p>9am - 5pm</p>
+          <p>9am - 3pm</p>
+          <p>Closed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="ratufa_loader" src="https://www.ratufa.io/c/ld.js?f=wjqw095f&n=n1.ratufa.io"></script>
+
+</body>
+<div id="footerload"></div>
+<script>
+  $('#kt_td_picker_basic').tempusDominus({
+  // options here
+  });
+
+  //Load the Footer
+  $(function(){
+    $("#footerload").load("footer.html");
+  });
+
+//JS for Photo Picker
+  const dt = new DataTransfer();
+
+$("#attachment").on('change', function(e){
+	for(var i = 0; i < this.files.length; i++){
+		let fileBloc = $('<span/>', {class: 'file-block'}),
+			 fileName = $('<span/>', {class: 'name', text: this.files.item(i).name});
+		fileBloc.append('<span class="file-delete"><span>+</span></span>')
+			.append(fileName);
+		$("#filesList > #files-names").append(fileBloc);
+	};
+	for (let file of this.files) {
+		dt.items.add(file);
+	}
+	this.files = dt.files;
+
+	$('span.file-delete').click(function(){
+		let name = $(this).next('span.name').text();
+		$(this).parent().remove();
+		for(let i = 0; i < dt.items.length; i++){
+			if(name === dt.items[i].getAsFile().name){
+				dt.items.remove(i);
+				continue;
+			}
+		}
+		document.getElementById('attachment').files = dt.files;
+	});
+});
+</script>
+</html>
